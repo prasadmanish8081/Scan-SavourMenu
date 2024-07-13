@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="h-24 w-screen bg-green-300 p-6 fixed flex justify-evenly items-center">
+      <h1 class="text-4xl font-bold"><span class="text-green-500">Scan</span>&Savour</h1>
+        <div class="flex justify-center items-center gap-4">
+          <button onclick="openAdminLogin()" class="cursor-pointer font-bold rounded-md bg-green-500 h-12 w-36 mt-4 text-white text-xl">Login</button>
+          <p class="text-2xl">or</p>
+          <button onclick="openAdminSignup()" class="cursor-pointer font-bold rounded-md bg-blue-500 h-12 w-48 mt-4 text-white text-xl">Open an account</button>
+          
+  <div id="adminSignup" class="modal">
+    <div class="modal-content rounded-md">
+      <span class="close" onclick="closeAdminSignup()">&times;</span>
+      <h2 class="text-4xl text-green-500 font-bold mb-14">Scan&Savour</h2>
+      <h2 class="text-4xl text-center font-bold mb-4">Signup</h2>
+      <p class="text-2 text-center mb-12">Already have a Scan&Savour account? <span class="text-green-500"><a href="/login">Log In</a></span></p>
+      <form id="adminSignupForm" action="/register" method="post">
+        <input class="inputform ml-24 border-2 border-green-500 rounded-md" name="name" type="text" placeholder="Name" required>
+        <input class="inputform border-2 border-green-500 rounded-md" name="username" type="text" placeholder="Username" required>
+        <input class="inputform ml-24 border-2 border-green-500 rounded-md" name="email" type="email" placeholder="Email" required>
+        <input class="inputform border-2 border-green-500 rounded-md" name="password" type="password" placeholder="Password" required>
+        <button class="adminlgbtn ml-72 mt-6 mb-9" type="submit">Signup</button>
+      </form>
+      <p class="term text-center mb-12">*By signing up you agree to our <span class="text-blue-500">Terms Of Use </span> and to <br>
+        receive dopweb emails & updates and acknowledge that <br>
+        you read our <span class="text-blue-500">Privacy Policy</span>.</p>
+    </div>
+  </div>  
+  <div id="adminLogin" class="modal">
+    <div class="modal-content rounded-md">
+      <span class="close" onclick="closeAdminLogin()">&times;</span>
+      <h2 class="text-4xl text-green-500 font-bold mb-14">Scan&Savour</h2>
+      <h2 class="text-4xl text-center font-bold mb-4">Login</h2>
+      <p class="text-2 text-center mb-12">New to Scan & Savour?<span class="text-green-500"><a href="/register">Sign Up</a></span></p>
+      <form id="adminLoginForm" action="/login" method="post">
+        <input class="inputform ml-24 border-2 border-green-500 rounded-md" name="username" type="text" placeholder="Username" required>
+        <input class="inputform border-2 border-green-500 rounded-md" name="password" type="password" placeholder="Password" required>
+        <button class="adminlgbtn ml-72 mt-6 mb-9" type="submit">Login</button>
+      </form>
+      <p class="term text-center mb-12">*By signing up you agree to our <span class="text-blue-500">Terms Of Use </span> and to <br>
+        receive dopweb emails & updates and acknowledge that <br>
+        you read our <span class="text-blue-500">Privacy Policy</span>.</p>
+    </div>
+  </div> 
+  </div>
+</div>
+    </div>
+    <div class="h-screen w-screen absolute -z-10 flex items-center justify-center gap-10 fixed ">
+      <img class="h-screen w-screen absolute -z-20 object-center " src="/images/handfood.webp" alt=""> 
+        <div class="text-2xl font-bold">
+          <h3 class="text-4xl">Improve your customer's <br> experience with <span class="text-green-500">QR menu</span></h3>
+          <p class="font-normal">Increase your sales</p>
+          <p class="font-normal">Edit on the go</p>
+          <p class="font-normal">Entice with mouthwatering images</p>
+          <p class="font-normal">Offer an optional online payment</p>
+          <button class="cursor-pointer rounded-md bg-green-500 h-12 w-36 mt-4 text-white text-xl"><a href="/">Start Now</a></button>
+        </div>
+        <div>
+          <video class=" mt-14 rounded-2xl ml-2 h-80 absolute -z-10" src="/images/1636505647.mp4" autoplay in loop muted></video>
+          <img class="h-96" src="/images/phone.webp" alt="">
+        </div>
+    </div>
+    <div class="h-96 w-screen mb-48 bg-transparent"></div>
+    <div class="">
+        <div class="h-16 w-screen bg-slate-50 text-center text-4xl p-2 font-bold text-green-600">
+          <i class="bi bi-chevron-double-down"></i>
+        </div>
+        <div class="flex justify-center items-center gap-20 h-screen w-screen bg-slate-50">
+            <div class="border h-96 w-96">
+                <img  class="border h-96 w-96 object-contain" src="/images/menu1.jpeg" alt="">
+            </div>
+            <div class="text-2xl font-bold">
+                <h3 class="text-4xl">QR menu is <span class="text-green-500">dynamic</span> and <span class="text-green-500">easy</span> to setup</h3>
+                <h4 class="font-normal">Edit, add and remove items in your Qr menu in real time at <br> your fingertips.</h4>
+                <h4 class="font-normal">Promote interaction and engagement to your customers <br> with a comfortable menu interface.</h4>
+                <button class="cursor-pointer rounded-md bg-green-500 h-12 w-60 mt-4 text-white text-xl"><a href="/">Create a QR Menu now</a></button>
+                <p class="font-normal text-xs mt-5">* 100% FREE - NO CREDIT CARD REQUIRED</p>
+
+            </div>
+        </div>
+        <div class="flex justify-center items-center gap-20 h-screen w-screen bg-slate-50">
+          <div class="text-2xl font-bold">
+            <h3 class="text-4xl"> Provide customers <br> with a <span class="text-green-500">smooth</span> Qr code <br> ordering <span class="text-green-500">experience</span></h3>
+            <button class="cursor-pointer rounded-md bg-green-500 h-12 w-72 mt-4 text-white text-xl"><a href="/">Create a QR Menu for free</a></button>
+            <p class="font-normal text-xs mt-5">* 100 % FREE - NO CREDIT CARD REQUIRED</p>
+          </div>
+          <div class="border h-96 w-96 ">
+            <img src="/images/menu2.jpg" alt="">
+          </div>
+        </div>
+    </div>
+    <div>
+      <div class="flex justify-center items-center ">
+        <div class=" flex justify-center items-center gap-20 h-screen w-screen bg-slate-50 ">
+          <div  class="border h-96 w-96 ">
+            <img src="/images/menu3.png" alt="">
+          </div>
+          <div class="text-2xl font-bold">
+            <h3 class="text-4xl"><span class="text-green-500">Optional </span> integrated mobile <span class="text-green-500">payment</span></h3>
+            <p class="font-normal">Provide your guest with a quick and easy way to pay for <br> meals and take-out ordes.</p>
+            <ul class="list-decimal ml-12 mt-5">
+              <li class="font-normal">Scan your QR code</li>
+              <li class="font-normal">check the bill( and split it if needed)</li>
+              <li class="font-normal">Leave a tip</li>
+              <li class="font-normal">You'are done!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="h-16 w-screen bg-green-300 flex items-center p-6 text-xl font-bold  text-white">
+        <h3 class="ml-5 text-2xl">Follow us <i class="bi bi-facebook ml-5 mr-2"></i>  <i class="bi bi-instagram"></i></h3>
+      </div>
+      <div class="h-96 w-screen flex justify-evenly p-12">
+        <div>
+          <h3 class="text-green-500 text-2xl font-bold mb-4"><span>The World's Best Restaurants</span></h3>
+          <ul>
+            <li >Restaurants in India</li>
+            <li>Restaurants in United States</li>
+            <li>Restaurants in Saudi Arabias</li>
+            <li>Restaurants in France</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-green-500 text-2xl font-bold mb-4"><span>Industries</span></h3>
+          <ul>
+            <li>Restaurant</li>
+            <li>Hotel</li>
+            <li>Beauty salon</li>
+            <li>Nail salon</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-green-500 text-2xl font-bold mb-4"><span>QR Codes</span></h3>
+          <ul>
+            <li>Order QR code stickers</li>
+            <li>Buy QR solution</li>
+            <li>QR Code generator</li>
+            <li>How to create QR Codes</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-green-500 text-2xl font-bold mb-4"><span>Company</span></h3>
+          <ul>
+            <li>Restaurant Menus</li>
+            <li>About us</li>
+            <li>Talk to us</li>
+            <li>Partner program</li>
+            <li>Blog</li>
+            <li>FAQ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="h-44 w-screen border-t-4 p-12">
+      <h1 class="text-xl font-bold mb-6"><span class="text-green-500">Scan</span>&Savour</h1>
+      <div class="text-slate-400 flex gap-12 mb-3"> <div>Privacy Policy </div>     <div>Terms & Conditions </div>     <div>Accessibility</div></div>
+      <p>&copy; Manish, Inc.</p>
+    </div>
+    <script src="/javascripts/script.js">
+    </script>
+</body>
+</html>

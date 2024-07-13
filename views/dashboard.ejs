@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="border-b-2 h-20 w-screen flex items-center pl-16 gap-8">
+        <h1 class="text-4xl font-bold"><span class="text-green-500">Scan</span>&Savour</h1>
+        <a href="/home">My Menus</a>
+        <a href="/order">My Orders</a>
+        <a href="/account">My Account</a>
+        <button><a href="/logout">Log out </a><span class="text-zinc-300">( <%= user.email %> )</span></button>
+    </div>
+    <div class="h-screen w-screen">
+        <div class="flex gap-12">
+            <div class="h-screen w-80 bg-green-100 pt-9 ">
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4 border bg-green-400">Home</li>
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4" >Orders</li>
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4">Reviews</li>
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4">Menu</li>
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4">Customers</li>
+                <li class="block h-9 w-72 text-44 font-bold flex items-center p-4 ml-4">Analytics</li>
+            </div>
+            <div class="flex justify-center h-screen w-full">
+                <div class="h-96 w-full bg-green-200 rounded-bl-3xl flex items-center justify-evenly">
+                    <div class="h-48 w-48 bg-blue-200">
+                        <img class="h-48 w-48 bg-blue-200" id="qrCode" src="<%= qrCodeUrl %>" alt="">
+                    </div>
+                    <div>
+                        <div class="flex justify-between border-b-2 p-12 border-black gap-12">
+                            <div>
+                                <select class="border w-44 h-8" name="" id="">
+                                    <option value="">7 Days</option>
+                                    <option value="">Today</option>
+                                    <option value="">Yesterday</option>
+                                </select>
+                                <p class="text-blue-500">See analytics</p>
+                            </div>
+                            <div class="flex justify-around gap-12">
+                                <div class="flex justify-center items-center text-xl font-semibold">
+                                    <h1>Views</h1>
+                                </div>
+                                <div class="h-14 w-1 bg-slate-100"></div>
+                                <div class="flex flex-col justify-center items-center text-xl font-semibold gap-2">
+                                    <p>0</p>
+                                    <p>Orders</p>
+                                </div>
+                                <div class="h-14 w-1 bg-slate-100"></div>
+                                <div class="flex flex-col justify-center items-center text-xl font-semibold gap-2">
+                                    <p>Rs.0</p>
+                                    <p>Sales</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="mb-5">Scan me!</p>
+                            <div class="flex gap-5">
+                                <button class="text-blue-500" id="downloadBtn">Download QR Code</button>
+                                <button class="text-blue-500">Order Waterproof QR Stickers</button>
+                                <button class="text-blue-500">Customize QR Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

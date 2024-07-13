@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="border-b-2 h-20 w-screen flex items-center pl-16 gap-8">
+        <h1 class="text-4xl font-bold"><span class="text-green-500">Scan</span>&Savour</h1>
+        <a href="/home">My Menus</a>
+        <a href="/order">My Orders</a>
+        <a href="/account">My Account</a>
+        <button><a href="/logout">Log out </a><span class="text-zinc-300">( <%= user.email %> )</span></button>
+    </div>
+    <div class="h-screen w-screen flex flex-col gap-9 items-center mt-12">
+          <div>
+            <h1 class="text-4xl font-bold text-center mb-12">Menu</h1>
+            <div>
+            </div>
+            <div>
+                <% menu.forEach(function(item) { %>
+                <div class="flex gap-16 text-3xl">
+                    <strong><%= item.name %></strong>- Rs.<%= item.price %>
+                    <em><%= item.description %></em> <br>
+                </div>
+                <% }) %>
+            </div>
+            <div class="h-96 w-96 bg-blue-100 ml-20 mt-16 flex flex-col gap-16 items-center p-12">
+                <img id="qrCode" src="<%= qrCodeUrl %>" alt="QR Code">
+                <button id="downloadBtn" class="rounded-full h-14 w-44 bg-green-500 font-bold text-white text-44">Download QR Code</button>
+            </div>
+          </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

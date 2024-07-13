@@ -1,0 +1,120 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,html {
+  height: 100%;
+  width: 100%;
+}
+.headwel{
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.adminlgbtn{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px 16px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.adminlgbtn:hover{
+  background-color: green;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+.inputform{
+height: 40px;
+width: 250px;
+font-size: 20px;
+margin: 5px;
+}
+.container {
+text-align: center;
+margin-top: 100px;
+}
+
+button {
+padding: 10px 20px;
+margin: 10px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 14vh;
+  margin-left: 25vw;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#adminSignup {
+  display: none;
+}
+
+.term{
+  font-size: 10px;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a.active {
+  border-bottom: 2px solid green;
+  color: green;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}

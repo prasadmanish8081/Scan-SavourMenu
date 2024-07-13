@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="border-b-2 h-20 w-screen flex items-center pl-16 gap-8">
+        <h1 class="text-4xl font-bold"><span class="text-green-500">Scan</span>&Savour</h1>
+        <a href="/home">My Menus</a>
+        <a href="/order">My Orders</a>
+        <a href="/account">My Account</a>
+        <button><a href="/logout">Log out </a><span class="text-zinc-300">( <%= user.email %> )</span></button>
+    </div>
+    <div class="h-screen w-screen p-16">
+        <div class="flex justify-evenly">
+            <div>
+                <h1 class="text-2xl font-semibold mb-20">Create New Menu Here!!</h1>
+                <p class="mb-5">Add a new product item of your choice</p>
+                <div>
+                    <form action="/add-menu" method="post">
+                        <div class="flex justify-center gap-8">
+                            <div class=" flex flex-col">
+                                <label class="text-2xl  font-bold" for="name" value="Type the item name">Name: </label> <br>
+                                <label class="text-2xl  font-bold" for="price" value="Rs.0">Price:</label> <br>
+                                <label  class="text-2xl  font-bold" for="description" value="Type the item description">Description: </label>
+                            </div>
+                            <div class=" flex flex-col">
+                                <input class="border" type="text" name="name" required> <br>
+                                <input class="border" type="text" name="price" required> <br>
+                                <textarea class="border" type="text" name="description" cols="23" requird></textarea><br>
+                            </div>
+                        </div>
+                        <button class=" rounded-full h-12 w-44 text-48 text-white font-bold bg-green-500 mt-16" type="submit">Add Menu Item</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <h1 class="text-2xl font-semibold mb-20">Menu Preview</h1>
+                <div>
+                    <% menu.forEach(function(elem){ %>
+                    <li class="list-none">
+                        <div class="flex justify-between gap-8">
+                            <div>
+                                <strong><%= elem.name %></strong> - Rs.<%= elem.price %> <br>
+                                <em><%= elem.description %></em> <br>
+                            </div>
+                            <div>
+                            <form action="/delete-menu/<%= elem._id %>" method="post">
+                                <button class="text-44 font-bold text-red-500" type="submit">Delete</button>
+                            </form>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+                    <button class=" rounded-full h-12 w-44 text-48 text-white font-bold bg-blue-500 mt-16" type="submit"><a href="/previewmenu">View Menu</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

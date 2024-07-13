@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function calculateTotal() {
+            console.log('calculateTotal called'); 
+    
+            const quantities = document.querySelectorAll('input[type="number"]');
+            let total = 0;
+    
+            quantities.forEach(quantityInput => {
+                const quantity = parseInt(quantityInput.value) || 0;
+                const price = parseFloat(quantityInput.dataset.price);
+                console.log(`Item price: ${price}, quantity: ${quantity}`); 
+                total += price * quantity;
+            });
+    
+            console.log(`Total calculated: ${total}`); 
+    
+            document.getElementById('total').innerText = `Total: Rs.${total.toFixed(2)}`;
+        }
+    
+        async function handleSubmit(event) {
+            event.preventDefault();
+    
+            const quantities = document.querySelectorAll('input[type="number"]');
+            const selectedItems = Array.from(quantities).filter(input => parseInt(input.value) > 0).map(input => ({
+                name: input.dataset.name,
+                price: parseFloat(input.dataset.price),
+                quantity: parseInt(input.value),
+                user: "<%= userId %>"
+            }));
+    
+            const total = parseFloat(document.getElementById('total').innerText.split('Rs.')[1]);
+    
+            const userId = "<%= userId %>";
+    
+            try {
+                const response = await fetch(`/order/${userId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ selectedItems, total })
+                });
+    
+                if (response.ok) {
+                    alert('Thank you for your payment!');
+                    window.location.reload();
+                } else {
+                    const errorText = await response.text();
+                    alert(`Error processing your order: ${errorText}`);
+                }
+            } catch (error) {
+                alert(`Error processing your order: ${error.message}`);
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="/images/uploads/<%= user.picture %>" class="h-screen w-screen absolute -z-10 object-fit" alt="">
+    <div class="h-auto w-screen">
+        <div class="h-auto w-screen bg-transparent">
+            <div class="h-38 w-screen flex items-center gap-9 ml-10">
+                <div class="h-24 w-24 rounded-full bg-slate-50 flex items-center justify-center border-4 border-green mt-12">
+                    <h1 class=" font-bold "><span class="text-green-500">Scan</span><br> & <br>Savour</h1>
+                </div>
+                <h1 class="text-3xl font-bold text-white mt-5"><%= user.shopname %></h1>
+            </div>
+            <div class="h-auto w-screen flex justify-center items-center mt-16 mb-20">
+                <div class="h-auto w-96  p-10 bg-slate-50 rounded-3xl border-black border-4">
+                    <h1 class="text-center  text-3xl font-bold">Menu</h1>
+                    <form onsubmit="handleSubmit(event)">
+                        <% menuItems.forEach(item => { %>
+                          <div class="mt-5">
+                            <label for="item-<%= item._id %>" class="text-xl flex justify-evenly items-center mb-2"><strong><%= item.name %></strong> - Rs.<%= item.price %> <em>per unit</em></label>
+                            <input 
+                              type="number" 
+                              id="item-<%= item._id %>" 
+                              data-name="<%= item.name %>" 
+                              data-price="<%= item.price %>" 
+                              min="0" 
+                              value="0"
+                              class="ml-3 w-16 text-center"
+                              onchange="calculateTotal()"
+                            >
+                          </div>
+                        <% }) %>
+                        <div class="text-center mt-6 ">
+                            <h2 id="total" class="text-2xl mb-6"><strong class="font-bold">Total:</strong> Rs.0.00</h2>
+                            <button type="submit" class="text-xl font-bold text-white h-9 w-20 bg-blue-500 rounded-full">Pay</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mb-12 ml-20 text-slate-50 ">
+                <h1 class="text-3xl font-semibold mt-5"><%= user.type %></h1>
+                <h1 class="text-xl font-semibold mt-5"><%= user.location %></h1>
+                <h1 class="text-xl font-semibold mt-5 mb-12"><%= user.contact %></h1>
+            </div>
+        </div>
+        <div class="h-20 w-screen text-center pt-4 bg-green-100">
+            <h1 class="text-4xl font-bold"><span class="text-green-500">Scan</span>&Savour</h1>
+        </div>
+    </div>
+</body>
+</html>
