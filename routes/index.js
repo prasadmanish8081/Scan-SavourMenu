@@ -38,7 +38,7 @@ router.get('/account', isLoggedIn, async function(req, res, next) {
 router.get('/previewmenu',isLoggedIn, async function(req, res){
   const user = await userModel.findOne({ username: req.session.passport.user });
   const menu = await menuModel.find({ user: user._id }).populate("user");
-  const qrCodeUrl = await qrcode.toDataURL(`http://localhost:3000/menu/${user._id}`);
+  const qrCodeUrl = await qrcode.toDataURL(`https://scansavourmenu.onrender.com/menu/${user._id}`);
   res.render('previewmenu', { menu, qrCodeUrl, user });
 });
 
